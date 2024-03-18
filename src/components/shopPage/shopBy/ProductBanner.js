@@ -4,23 +4,23 @@ import React, { useEffect, useState } from "react";
 import { GoTriangleDown } from "react-icons/go";
 
 const ProductBanner = ({ itemsPerPageFromBanner }) => {
-    // const [selected, setSelected] = useState("");
+  // const [selected, setSelected] = useState("");
   const [girdViewActive, setGridViewActive] = useState(true);
   const [listViewActive, setListViewActive] = useState(false);
-//   useEffect(() => {
-//     const gridView = document.querySelector(".gridView");
-//     const listView = document.querySelector(".listView");
+  //   useEffect(() => {
+  //     const gridView = document.querySelector(".gridView");
+  //     const listView = document.querySelector(".listView");
 
-//     gridView.addEventListener("click", () => {
-//       setListViewActive(false);
-//       setGridViewActive(true);
-//     });
-//     listView.addEventListener("click", () => {
-//       setGridViewActive(false);
-//       setListViewActive(true);
-//     });
-    
-//   }, [girdViewActive, listViewActive]);
+  //     gridView.addEventListener("click", () => {
+  //       setListViewActive(false);
+  //       setGridViewActive(true);
+  //     });
+  //     listView.addEventListener("click", () => {
+  //       setGridViewActive(false);
+  //       setListViewActive(true);
+  //     });
+
+  //   }, [girdViewActive, listViewActive]);
 
   return (
     <div className="w-full flex flex-col md:items-end ustify-between">
@@ -55,7 +55,7 @@ const ProductBanner = ({ itemsPerPageFromBanner }) => {
                             Right Part STart here
         ======================================================== */}
       <div className="flex items-center gap-2 md:gap-6 mt-4 md:mt-0">
-        <div className="flex items-center gap-2 text-base text-[#767676] relative">
+        {/* <div className="flex items-center gap-2 text-base text-[#767676] relative">
           <label className="block">Sort by:</label>
           <select
             // onChange={(e) => setSelected(e.target.value)
@@ -71,7 +71,7 @@ const ProductBanner = ({ itemsPerPageFromBanner }) => {
           <span className="absolute text-sm right-2 md:right-4 top-2.5">
             <GoTriangleDown />
           </span>
-        </div>
+        </div> */}
         <div className="flex items-center gap-2 text-[#767676] relative">
           <label className="block">Show:</label>
           <select

@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import bannerImgOne from "../assits/products/banner/bannerImgTwo.jpg";
 import bannerImgTwo from "../assits/products/banner/bannerImgOne.jpg";
-import bannerImgThree from "../assits/products/banner/bannerImgThree.jpg";
+
 import bannerImgFour from "../assits/products/banner/bannerImgFour.jpg";
 
 import Image from "../assits/Image";
 
 const Banner = () => {
   const [dotActive, setDocActive] = useState(0);
-  
+
   const settings = {
     dots: true,
     infinite: true,
@@ -114,11 +114,11 @@ const Banner = () => {
             <Image imgSrc={bannerImgTwo} />
           </div>
         </Link>
-        <Link to="/offerThree">
+        {/* <Link to="/offerThree">
           <div>
             <Image imgSrc={bannerImgThree} />
           </div>
-        </Link>
+        </Link> */}
         <Link to="/offer">
           <div>
             <Image imgSrc={bannerImgFour} />

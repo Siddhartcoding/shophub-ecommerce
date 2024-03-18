@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { navBarList } from "../data.js/data";
-import { Link, NavLink, useLocation,useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { MdClose } from "react-icons/md";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { motion } from "framer-motion";
@@ -12,14 +12,14 @@ import { useAuthValue } from "../productContext/authContext";
 
 const NaveBar = () => {
   const navigate = useNavigate();
-  const { isLoggedIn ,signIn , signOut, userLoggedIn} = useAuthValue();
+  const { isLoggedIn, signIn, signOut, userLoggedIn } = useAuthValue();
   const { setShow, show } = useProductContext();
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(true);
   const [sidenav, setSidenav] = useState(false);
   const [category, setCategory] = useState(false);
   const [brand, setBrand] = useState(false);
- 
+
   useEffect(() => {
     let ResponsiveMenu = () => {
       if (window.innerWidth < 667) {
@@ -32,20 +32,21 @@ const NaveBar = () => {
     window.addEventListener("resize", ResponsiveMenu);
   }, []);
 
-  function nav (){
+  function nav() {
     navigate("/login");
   }
   function handleClick() {
     setShow(false);
   }
 
-
   return (
     <>
-      <div className="w-full h-20 bg-white sticky top-0 z-50 border-b-[1px] border-b-gray-200" onClick={handleClick}>
+      <div
+        className="w-full h-20 bg-white sticky top-0 z-50 border-b-[1px] border-b-gray-200"
+        onClick={handleClick}
+      >
         <nav className="h-full px-4 max-w-container mx-auto relative">
           <div className="flex items-center justify-between h-full">
-
             <Link to="/">
               <div>
                 <Image className="w-20 object-cover" imgSrc={logo} />
@@ -106,9 +107,16 @@ const NaveBar = () => {
                           </NavLink>
                         </li>
                       ))}
-                     { isLoggedIn?  (<li onClick={signOut} className="font-normal hover:font-bold items-center text-lg text-gray-200 hover:underline underline-offset-[4px] decoration-[1px] hover:text-white md:border-r-[2px] border-r-gray-300 hoverEffect last:border-r-0">
-                        SignOut
-                      </li>):""}
+                      {isLoggedIn ? (
+                        <li
+                          onClick={signOut}
+                          className="font-normal hover:font-bold items-center text-lg text-gray-200 hover:underline underline-offset-[4px] decoration-[1px] hover:text-white md:border-r-[2px] border-r-gray-300 hoverEffect last:border-r-0"
+                        >
+                          SignOut
+                        </li>
+                      ) : (
+                        ""
+                      )}
                     </ul>
                     <div className="mt-4">
                       <h1
@@ -148,22 +156,29 @@ const NaveBar = () => {
                           transition={{ duration: 0.4 }}
                           className="text-sm flex flex-col gap-1"
                         >
-                          {userLoggedIn?<>
-                         <p className="text-base font-titleFont font-semibold ">
-                            Name
-                          </p>
-                          <div className="w-full py-1 border-b text-sm font-medium ">
-                            {userLoggedIn.name}
-                          </div>
-                          <p className="text-base font-titleFont font-semibold ">
-                            Email
-                          </p>
-                          <div className="w-full py-1 border-b  text-sm font-medium">
-                            {userLoggedIn.email}
-                          </div>
-                          </>:  <p onClick={nav}className="text-base font-titleFont font-semibold cursor-pointer text-green-500">
-                            Sign-In first!
-                          </p>}
+                          {userLoggedIn ? (
+                            <>
+                              <p className="text-base font-titleFont font-semibold ">
+                                Name
+                              </p>
+                              <div className="w-full py-1 border-b text-sm font-medium ">
+                                {userLoggedIn.name}
+                              </div>
+                              <p className="text-base font-titleFont font-semibold ">
+                                Email
+                              </p>
+                              <div className="w-full py-1 border-b  text-sm font-medium">
+                                {userLoggedIn.email}
+                              </div>
+                            </>
+                          ) : (
+                            <p
+                              onClick={nav}
+                              className="text-base font-titleFont font-semibold cursor-pointer text-green-500"
+                            >
+                              Sign-In first!
+                            </p>
+                          )}
                           {/* <li className="headerSedenavLi">Accessories</li>
                           <li className="headerSedenavLi">Electronics</li>
                           <li className="headerSedenavLi">Others</li> */}
@@ -180,13 +195,10 @@ const NaveBar = () => {
                 </motion.div>
               </div>
             )}
-
           </div>
         </nav>
       </div>
-
     </>
-
-  )
-}
+  );
+};
 export default NaveBar;
